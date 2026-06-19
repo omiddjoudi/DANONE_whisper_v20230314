@@ -1,8 +1,8 @@
-numba
-numpy
+numba==0.61.0
+numpy==2.2.2
 torch==1.13.0
-tqdm
-more-itertools
+tqdm==4.67.1
+more-itertools==10.6.0
 tiktoken==0.3.1
 ffmpeg-python==0.2.0
 setuptools==70.3.0
