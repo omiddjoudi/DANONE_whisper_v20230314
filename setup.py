@@ -12,6 +12,9 @@ def read_version(fname="whisper/version.py"):
 
 
 requirements = []
+with open('requirements.txt') as f:
+    requirements = f.read().splitlines()
+    
 if sys.platform.startswith("linux") and platform.machine() == "x86_64":
     requirements.append("triton==2.0.0")
 
@@ -28,13 +31,7 @@ setup(
     url="https://github.com/openai/whisper",
     license="MIT",
     packages=find_packages(exclude=["tests*"]),
-    install_requires=requirements
-    + [
-        str(r)
-        for r in pkg_resources.parse_requirements(
-            open(os.path.join(os.path.dirname(__file__), "requirements.txt"))
-        )
-    ],
+    install_requires=requirements,
     entry_points={
         "console_scripts": ["whisper=whisper.transcribe:cli"],
     },
